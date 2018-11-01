@@ -34,6 +34,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.robotcore.external.ClassFactory;
+import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
 import org.firstinspires.ftc.robotcore.external.matrices.OpenGLMatrix;
 import org.firstinspires.ftc.robotcore.external.matrices.VectorF;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
@@ -91,8 +92,7 @@ import static org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocaliz
  * is explained below.
  */
 
-@TeleOp(name="Concept: Vuforia Rover Nav", group ="Concept")
-@Disabled
+@TeleOp(name="Vuforia Testing", group ="Concept")
 public class Vuforia extends LinearOpMode {
 
     /*
@@ -107,7 +107,7 @@ public class Vuforia extends LinearOpMode {
      * Once you've obtained a license key, copy the string from the Vuforia web site
      * and paste it in to your code on the next line, between the double quotes.
      */
-    private static final String VUFORIA_KEY = " -- YOUR NEW VUFORIA KEY GOES HERE  --- ";
+    private static final String VUFORIA_KEY = "AWzRj5H/////AAABmcC7sf9YKkxKhvBPFxKR4WoaVK4eod/yZbXQWKzehhQ890CsXqtZ66WENRzFC8baGUKv1QnCWb/R1u5LaUAxlFspHk17xUwDa4dbzdJZgJHaQsj+RvWsdZpGv7ehDsa1zg6+1+q14b4VW+b6acJXs01BPlZLfgrDeHJRvoivwl/aclTtakfBVAvkNhyTmw7FlD/W/wjqQR0MGdlY9PU25a6X4wXRZplXYHyOHJOY89XR27cf8ggtuhy4d9vwlw68PmCOudlogQyLUJjhVfL4VMAZnl0/0a9x4+mOD10f3TlhPklH710kA9edyGKg3I0E+jzFfTp67PZ8oAMF6tvgbpiv6aAqh23oewtpzKHBKwRw";
 
     // Since ImageTarget trackables use mm to specifiy their dimensions, we must use mm for all the physical dimension.
     // We will define some constants and conversions here
@@ -127,8 +127,11 @@ public class Vuforia extends LinearOpMode {
      * localization engine.
      */
     VuforiaLocalizer vuforia;
+    WebcamName webcamName;
 
     @Override public void runOpMode() {
+        webcamName = hardwareMap.get(WebcamName.class, "Webcam 1");
+
         /*
          * Configure Vuforia by creating a Parameter object, and passing it to the Vuforia engine.
          * We can pass Vuforia the handle to a camera preview resource (on the RC phone);
@@ -140,7 +143,7 @@ public class Vuforia extends LinearOpMode {
         // VuforiaLocalizer.Parameters parameters = new VuforiaLocalizer.Parameters();
 
         parameters.vuforiaLicenseKey = VUFORIA_KEY ;
-        parameters.cameraDirection   = CAMERA_CHOICE;
+        parameters.cameraName = webcamName;
 
         //  Instantiate the Vuforia engine
         vuforia = ClassFactory.getInstance().createVuforia(parameters);
