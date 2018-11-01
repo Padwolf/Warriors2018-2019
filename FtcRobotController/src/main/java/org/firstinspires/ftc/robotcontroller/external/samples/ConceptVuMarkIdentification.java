@@ -66,7 +66,6 @@ import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackables;
  */
 
 @TeleOp(name="Concept: VuMark Id", group ="Concept")
-@Disabled
 public class ConceptVuMarkIdentification extends LinearOpMode {
 
     public static final String TAG = "Vuforia VuMark Sample";
@@ -102,7 +101,7 @@ public class ConceptVuMarkIdentification extends LinearOpMode {
          * Once you've obtained a license key, copy the string from the Vuforia web site
          * and paste it in to your code on the next line, between the double quotes.
          */
-        parameters.vuforiaLicenseKey = " -- YOUR NEW VUFORIA KEY GOES HERE  --- ";
+        parameters.vuforiaLicenseKey = "AWzRj5H/////AAABmcC7sf9YKkxKhvBPFxKR4WoaVK4eod/yZbXQWKzehhQ890CsXqtZ66WENRzFC8baGUKv1QnCWb/R1u5LaUAxlFspHk17xUwDa4dbzdJZgJHaQsj+RvWsdZpGv7ehDsa1zg6+1+q14b4VW+b6acJXs01BPlZLfgrDeHJRvoivwl/aclTtakfBVAvkNhyTmw7FlD/W/wjqQR0MGdlY9PU25a6X4wXRZplXYHyOHJOY89XR27cf8ggtuhy4d9vwlw68PmCOudlogQyLUJjhVfL4VMAZnl0/0a9x4+mOD10f3TlhPklH710kA9edyGKg3I0E+jzFfTp67PZ8oAMF6tvgbpiv6aAqh23oewtpzKHBKwRw";
 
         /*
          * We also indicate which camera on the RC that we wish to use.
@@ -123,7 +122,7 @@ public class ConceptVuMarkIdentification extends LinearOpMode {
          * but differ in their instance id information.
          * @see VuMarkInstanceId
          */
-        VuforiaTrackables relicTrackables = this.vuforia.loadTrackablesFromAsset("RelicVuMark");
+        VuforiaTrackables relicTrackables = this.vuforia.loadTrackablesFromAsset("RoverRuckus");
         VuforiaTrackable relicTemplate = relicTrackables.get(0);
         relicTemplate.setName("relicVuMarkTemplate"); // can help in debugging; otherwise not necessary
 
